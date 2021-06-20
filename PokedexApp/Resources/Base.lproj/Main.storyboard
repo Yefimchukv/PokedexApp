@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1Y-bb-EDx">
+                                <rect key="frame" x="32" y="42" width="364" height="842"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikachu" translatesAutoresizingMaskIntoConstraints="NO" id="V7D-jW-7G5">
+                                        <rect key="frame" x="8" y="16" width="348" height="280.66666666666669"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Electric" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVa-e5-awh" userLabel="Subtitle Label">
+                                        <rect key="frame" x="153.66666666666666" y="341.66666666666669" width="57" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pikachu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JA6-Zi-oMp" userLabel="Title Label">
+                                        <rect key="frame" x="152" y="312.66666666666669" width="60" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstItem="V7D-jW-7G5" firstAttribute="leading" secondItem="B1Y-bb-EDx" secondAttribute="leading" constant="8" id="5fN-2p-Lyy"/>
+                                    <constraint firstItem="JA6-Zi-oMp" firstAttribute="centerX" secondItem="V7D-jW-7G5" secondAttribute="centerX" id="8Ts-JB-rg9"/>
+                                    <constraint firstItem="V7D-jW-7G5" firstAttribute="centerX" secondItem="B1Y-bb-EDx" secondAttribute="centerX" id="TDU-fM-XCH"/>
+                                    <constraint firstItem="JA6-Zi-oMp" firstAttribute="top" secondItem="V7D-jW-7G5" secondAttribute="bottom" constant="16" id="XSn-6U-wZi"/>
+                                    <constraint firstItem="V7D-jW-7G5" firstAttribute="height" secondItem="B1Y-bb-EDx" secondAttribute="height" multiplier="1/3" id="YPX-K2-Lrv"/>
+                                    <constraint firstItem="V7D-jW-7G5" firstAttribute="top" secondItem="B1Y-bb-EDx" secondAttribute="top" constant="16" id="p99-lv-zp8"/>
+                                    <constraint firstItem="DVa-e5-awh" firstAttribute="top" secondItem="JA6-Zi-oMp" secondAttribute="bottom" constant="8" id="y0y-lr-hRH"/>
+                                    <constraint firstAttribute="trailing" secondItem="V7D-jW-7G5" secondAttribute="trailing" constant="8" id="yid-rD-5Qp"/>
+                                    <constraint firstItem="DVa-e5-awh" firstAttribute="centerX" secondItem="JA6-Zi-oMp" secondAttribute="centerX" id="zca-xd-blK"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-lv-WKM">
+                                <rect key="frame" x="151.66666666666666" y="854" width="124.99999999999997" height="30"/>
+                                <state key="normal" title="Random Pokemon"/>
+                                <connections>
+                                    <action selector="randomizeButtonTapepd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g2o-qw-hPF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B1Y-bb-EDx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1lg-K0-snk"/>
+                            <constraint firstItem="vMY-lv-WKM" firstAttribute="centerX" secondItem="B1Y-bb-EDx" secondAttribute="centerX" id="CGk-ht-t8L"/>
+                            <constraint firstItem="B1Y-bb-EDx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GOr-FQ-zJn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="B1Y-bb-EDx" secondAttribute="bottom" priority="750" constant="128" id="Ifr-zD-Fjx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vMY-lv-WKM" secondAttribute="bottom" constant="8" id="NGr-d8-s1B"/>
+                            <constraint firstItem="B1Y-bb-EDx" firstAttribute="top" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="128" id="R7c-c3-FUz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="B1Y-bb-EDx" secondAttribute="bottom" constant="8" id="enQ-PO-h7a"/>
+                            <constraint firstItem="B1Y-bb-EDx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="i43-p8-f0W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B1Y-bb-EDx" secondAttribute="trailing" constant="32" id="vPv-QN-kBo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pokemonImage" destination="V7D-jW-7G5" id="Ulf-xd-vRn"/>
+                        <outlet property="randomizeButtom" destination="vMY-lv-WKM" id="9jt-cl-ele"/>
+                        <outlet property="subtitleLabel" destination="DVa-e5-awh" id="b1f-z4-j2Z"/>
+                        <outlet property="titleLabel" destination="JA6-Zi-oMp" id="ZUQ-49-16p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-8" y="34"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pikachu" width="475" height="475"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
