@@ -11,5 +11,7 @@ struct Pokemon {
     let name: String
     let type: String
     
+    let stats: [Int: [String: Int]]
+    
 //    let image:
 }
