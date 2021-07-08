@@ -15,3 +15,16 @@ struct Pokemon {
     
 //    let image:
 }
+
+extension Pokemon: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(type)
+    }
+}
+
+extension Pokemon: Equatable {
+    static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
+        lhs.hashValue == rhs.hashValue
+    }
+}

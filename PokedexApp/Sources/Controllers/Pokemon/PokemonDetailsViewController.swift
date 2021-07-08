@@ -23,11 +23,13 @@ class PokemonDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        pokemonService = StorageService(pokemons: [
-            Pokemon(name: "Pikachu", type: "Electric", stats: [0: ["HP": 35], 1: ["Attack": 55], 2: ["Defence": 40], 3: ["Sp. Atk": 50], 4: ["Sp. Def": 50], 5: ["Speed": 90]]),
-            Pokemon(name: "Sandshrew", type: "Ground", stats: [0: ["HP": 50], 1: ["Attack": 75], 2: ["Defence": 85], 3: ["Sp. Atk": 20], 4: ["Sp. Def": 30], 5: ["Speed": 40]]),
-        ])
+        pokemonService = StorageService()
+        pokemonService.loadPokemons()
+        if let currentPokemon = currentPokemon {
+            updateUI(for: currentPokemon)
+        } else {
+            refresh()
+        }
     }
     
     @IBAction func randomizeButtonTapepd(_ sender: UIButton) {
@@ -49,7 +51,7 @@ class PokemonDetailsViewController: UIViewController {
             container.layer.transform = CATransform3DRotate(perspectiveTransform, .pi / 2, 0, -1, 0)
             self.workingConstraint.priority = .init(999.0)
             self.loadingConstraint.priority = .init(998.0)
-
+            
             UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut]) {
                 container.layer.transform = CATransform3DIdentity
                 self.view.layoutIfNeeded()
@@ -57,14 +59,21 @@ class PokemonDetailsViewController: UIViewController {
         }
     }
     
+    
+    
     func refresh() {
-        let pokemon = pokemonService.getPokemon()
-        let image = pokemon.name.lowercased()
+        guard let pokemon = pokemonService.getPokemon() else { return }
+        self.currentPokemon = pokemon
         
+        updateUI(for: pokemon)
+    }
+    
+    fileprivate func updateUI(for pokemon: Pokemon) {
+        let image = pokemon.name.lowercased()
         titleLabel.text = pokemon.name
         subtitleLabel.text = pokemon.type
         pokemonImage.image = UIImage(named: image)
-        self.currentPokemon = pokemon
+        
         self.collectionView.reloadData()
     }
 }
@@ -84,7 +93,7 @@ extension PokemonDetailsViewController: UICollectionViewDataSource, UICollection
         guard let currentPokemon = currentPokemon else {
             return cell
         }
-                
+        
         guard let statsKeys = currentPokemon.stats[indexPath.row]?.keys.first,
               let statsValues = currentPokemon.stats[indexPath.item]?.values.first else { return cell }
         
